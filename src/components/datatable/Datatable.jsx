@@ -1,25 +1,38 @@
-import React from 'react'
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import React from "react";
+import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
 
-import "./datatable.scss"
-import { userColumns, userRows } from '../../datatableSource';
+import "./datatable.scss";
+import { userColumns, userRows } from "../../datatableSource";
 
 const Datatable = () => {
-
   const actionColumn = [
-    {field: "action", headerName:"Action", width: 200, renderCell:()=>{
-      return (
-        <div className='cellAction'>
-          <div className='viewButton'>View</div>
-          <div className='deleteButton'>Delete</div>
-        </div>
-      )
-    } }
-  ]
+    {
+      field: "action",
+      headerName: "Action",
+      width: 200,
+      renderCell: () => {
+        return (
+          <div className="cellAction">
+            <Link to="/users/test" style={{ textDecoration: "none" }}>
+              <div className="viewButton">View</div>
+            </Link>
+            <div className="deleteButton">Delete</div>
+          </div>
+        );
+      },
+    },
+  ];
 
   return (
-    <div className='datatable'>
-       <DataGrid
+    <div className="datatable">
+      <div className="datatableTitle">
+        Add New User
+        <Link to="/users/new" className="link">
+          Add New
+        </Link>
+      </div>
+      <DataGrid
         rows={userRows}
         columns={userColumns.concat(actionColumn)}
         initialState={{
@@ -31,7 +44,7 @@ const Datatable = () => {
         checkboxSelection
       />
     </div>
-  )
-}
+  );
+};
 
-export default Datatable
+export default Datatable;

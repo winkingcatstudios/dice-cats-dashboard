@@ -5,12 +5,13 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
-import SummarizeIcon from '@mui/icons-material/Summarize';
-import SettingsIcon from '@mui/icons-material/Settings';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import LogoutIcon from '@mui/icons-material/Logout';
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
+import SummarizeIcon from "@mui/icons-material/Summarize";
+import SettingsIcon from "@mui/icons-material/Settings";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { Link } from "react-router-dom";
 
 import "./sidebar.scss";
 
@@ -18,62 +19,70 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo">Dice Cats Admin</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">Dice Cats Admin</span>
+        </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon"/>
-            <span>Dashboard</span>
-          </li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
           <p className="title">LISTS</p>
+          <Link to="/users" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonIcon className="icon" />
+              <span>Users</span>
+            </li>
+          </Link>
+          <Link to="/products" style={{ textDecoration: "none" }}>
+            <li>
+              <InventoryIcon className="icon" />
+              <span>Products</span>
+            </li>
+          </Link>
           <li>
-            <PersonIcon className="icon"/>
-            <span>Users</span>
-          </li>
-          <li>
-            <InventoryIcon className="icon"/>
-            <span>Products</span>
-          </li>
-          <li>
-            <CreditCardIcon className="icon"/>
+            <CreditCardIcon className="icon" />
             <span>Orders</span>
           </li>
           <li>
-            <LocalShippingIcon className="icon"/>
+            <LocalShippingIcon className="icon" />
             <span>Delivery</span>
           </li>
           <p className="title">USEFUL</p>
           <li>
-            <QueryStatsIcon className="icon"/>
+            <QueryStatsIcon className="icon" />
             <span>Stats</span>
           </li>
           <li>
-            <NotificationsIcon className="icon"/>
+            <NotificationsIcon className="icon" />
             <span>Notifications</span>
           </li>
           <p className="title">SERVICE</p>
           <li>
-            <MonitorHeartIcon className="icon"/>
+            <MonitorHeartIcon className="icon" />
             <span>System Health</span>
           </li>
           <li>
-            <SummarizeIcon className="icon"/>
+            <SummarizeIcon className="icon" />
             <span>Logs</span>
           </li>
           <li>
-            <SettingsIcon className="icon"/>
+            <SettingsIcon className="icon" />
             <span>Settings</span>
           </li>
           <p className="title">USER</p>
           <li>
-            <AccountCircleIcon className="icon"/>
+            <AccountCircleIcon className="icon" />
             <span>Profile</span>
           </li>
           <li>
-            <LogoutIcon className="icon"/>
+            <LogoutIcon className="icon" />
             <span>Logout</span>
           </li>
         </ul>
